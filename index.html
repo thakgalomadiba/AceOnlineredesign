@@ -63,14 +63,9 @@
 
     <h3>All Categories</h3>
 
-    <ul>
-      <li>Home</li>
-      <li>Consumer Electronics</li>
-      <li>Office & Business</li>
-      <li>Family</li>
-      <li>Consumables</li>
-      <li>Personal & Lifestyle</li>
-    </ul>
+    <ul id="category-list">
+    <!-- Categories will be dynamically added here -->
+  </ul>
 
   </aside>
 
@@ -89,4 +84,34 @@
 </div>
 
 </body>
+
+<script>
+fetch('categories.json')
+  .then(response => response.json())
+  .then(data => {
+    const ul = document.getElementById('category-list');
+
+    data.forEach(category => {
+      const li = document.createElement('li');
+      li.textContent = category.name;
+
+      if (category.subcategories.length > 0) {
+        const subUl = document.createElement('ul');
+        subUl.classList.add('submenu');
+
+        category.subcategories.forEach(sub => {
+          const subLi = document.createElement('li');
+          subLi.textContent = sub;
+          subUl.appendChild(subLi);
+        });
+
+        li.appendChild(subUl);
+      }
+
+      ul.appendChild(li);
+    });
+  })
+  .catch(err => console.error('Error loading categories:', err));
+</script>
+
 </html>
