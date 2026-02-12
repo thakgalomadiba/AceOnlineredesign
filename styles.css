@@ -1,0 +1,267 @@
+/* ===============================
+   GLOBAL RESET
+================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #f4f5f7;
+  color: #222;
+}
+
+/* ===============================
+   TOP BAR
+================================= */
+
+.top-bar {
+  background: #eee;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.top-bar a {
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+  margin-left: 20px;
+  white-space: nowrap;
+}
+
+/* ===============================
+   HEADER
+================================= */
+
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: white;
+  border-bottom: 1px solid #eee;
+  flex-wrap: nowrap; /* Prevent accidental wrapping */
+}
+
+/* Logo */
+
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+  color: #f7931e;
+  white-space: nowrap;
+}
+
+/* Navigation */
+
+.main-header nav {
+  display: flex;
+  gap: 25px; /* Use gap instead of margins */
+  flex: 1;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.main-header nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: 0.3s ease;
+}
+
+.main-header nav a:hover {
+  color: #f7931e;
+}
+
+/* Cart */
+
+.cart {
+  background: #f7931e;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* ===============================
+   SEARCH SECTION
+================================= */
+
+.search-section {
+  display: flex;
+  padding: 15px 40px;
+  background: #f7931e;
+  gap: 10px;
+  align-items: center;
+}
+
+.category-btn {
+  background: white;
+  padding: 12px 20px;
+  font-weight: 600;
+  border-radius: 4px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.search-section input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+.search-btn {
+  background: white;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* ===============================
+   MAIN LAYOUT
+================================= */
+
+.layout {
+  display: flex;
+  padding: 40px;
+  gap: 30px;
+}
+
+/* ===============================
+   SIDEBAR
+================================= */
+
+.sidebar {
+  width: 260px;
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.sidebar h3 {
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.sidebar li:hover {
+  color: #f7931e;
+}
+
+/* ===============================
+   HERO
+================================= */
+
+.hero {
+  flex: 1;
+  height: 380px;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #222, #444);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 60px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  background: #f7931e;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.hero button:hover {
+  background: #e67e0f;
+}
+
+/* ===============================
+   TABLET RESPONSIVE (≤1024px)
+================================= */
+
+@media (max-width: 1024px) {
+
+  .main-header nav {
+    gap: 15px; /* Reduce spacing */
+  }
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+}
+
+/* ===============================
+   MOBILE RESPONSIVE (≤768px)
+================================= */
+
+@media (max-width: 768px) {
+
+  .top-bar {
+    padding: 10px 20px;
+  }
+
+  .main-header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .main-header nav {
+    flex-wrap: wrap; /* Allow wrap intentionally */
+    justify-content: center;
+  }
+
+  .search-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .layout {
+    padding: 20px;
+  }
+
+  .hero {
+    padding: 30px;
+    height: auto;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+}
