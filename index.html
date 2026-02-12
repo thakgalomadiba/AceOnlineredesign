@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ace Online SA — Homepage Concept</title>
 <link rel="stylesheet" href="styles.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -19,14 +18,9 @@
   </div>
 </div>
 
-
 <!-- HEADER -->
 <header class="main-header">
-
-  <div class="logo">
-    ACE ONLINE SA
-  </div>
-
+  <div class="logo">ACE ONLINE SA</div>
   <nav>
     <a href="#">Home</a>
     <a href="#">New In Store</a>
@@ -35,83 +29,43 @@
     <a href="#">Drop Shipping</a>
     <a href="#">News</a>
   </nav>
-
   <div class="cart">🛒 (0) items</div>
-
 </header>
-
 
 <!-- SEARCH BAR -->
 <section class="search-section">
-
-  <div class="category-btn">
-    ALL CATEGORIES ☰
-  </div>
-
+  <div class="category-btn">ALL CATEGORIES ☰</div>
   <input type="text" placeholder="Search store">
-
   <button class="search-btn">🔍</button>
-
 </section>
-
 
 <!-- MAIN LAYOUT -->
 <div class="layout">
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
-
     <h3>All Categories</h3>
-
     <ul id="category-list">
-    <!-- Categories will be dynamically added here -->
-  </ul>
-
+      <!-- Categories loaded dynamically -->
+    </ul>
   </aside>
-
 
   <!-- HERO BANNER -->
   <main class="hero">
-
     <div class="hero-content">
       <h1>Best Every Time</h1>
       <p>Technology & Office Solutions</p>
       <button>Shop Now</button>
     </div>
-
   </main>
 
 </div>
 
+<!-- SCRIPT -->
+<!-- Scripts -->
+<script src="categories.js"></script>
+<script src="render.js"></script>
+<script src="main.js"></script>
+
 </body>
-
-<script>
-fetch('categories.json')
-  .then(response => response.json())
-  .then(data => {
-    const ul = document.getElementById('category-list');
-
-    data.forEach(category => {
-      const li = document.createElement('li');
-      li.textContent = category.name;
-
-      if (category.subcategories.length > 0) {
-        const subUl = document.createElement('ul');
-        subUl.classList.add('submenu');
-
-        category.subcategories.forEach(sub => {
-          const subLi = document.createElement('li');
-          subLi.textContent = sub;
-          subUl.appendChild(subLi);
-        });
-
-        li.appendChild(subUl);
-      }
-
-      ul.appendChild(li);
-    });
-  })
-  .catch(err => console.error('Error loading categories:', err));
-</script>
-
 </html>

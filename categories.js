@@ -1,0 +1,14 @@
+// Simulate backend sending JSON data
+const backendCategories = [
+  {
+    "name": "Consumer Electronics",
+    "subcategories": ["TV & Audio", "Cameras", "Musical Instruments", "Gaming"]
+  },
+  {
+    "name": "Office & Business",
+    "subcategories": ["Stationery", "Office & Furniture", "Industrial, Business & Science"]
+  },
+  { "name": "Family", "subcategories": [] },
+  { "name": "Consumables", "subcategories": [] },
+  { "name": "Personal & Lifestyle", "subcategories": [] }
+];
