@@ -12,7 +12,7 @@ if (file_exists($categoriesFile)) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ACE Online SA</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="public/assets/style.css">
   <link rel="stylesheet" href="public/assets/style.css">
 </head>
 <body>
@@ -22,12 +22,12 @@ if (file_exists($categoriesFile)) {
 
     <!-- Logo -->
     <div class="logo">
-      <a href="../../index.php">ACE ONLINE SA</a>
+      <a href="/index.php">ACE ONLINE SA</a>
     </div>
 
     <!-- Navigation -->
     <nav class="main-nav">
-      <a href="../../index.php">Home</a>
+      <a href="/index.php">Home</a>
 
       <?php
       // If categories exist in JSON, create dropdowns
@@ -48,7 +48,7 @@ if (file_exists($categoriesFile)) {
       <!-- Other static nav links -->
       <a href="#">New In Store</a>
       <a href="#">Brands</a>
-      <a href="#">Contact Us</a>
+      <a href="/contact.php">Contact</a>
       <a href="#">Drop Shipping</a>
       <a href="#">News</a>
     </nav>

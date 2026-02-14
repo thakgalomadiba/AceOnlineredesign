@@ -173,3 +173,80 @@ footer { background:#fff; color:#111; text-align:center; padding:1.5rem 0; borde
     width: 100%;
   }
 }
+
+/* CONTACT PAGE */
+.contact-section {
+  padding: 3rem 0;
+}
+
+.page-title {
+  text-align: center;
+  color: #f39c12;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.contact-wrapper {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.primary-btn {
+  background: #f39c12;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  color: white;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: #e67e22;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.back-home-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: #f39c12;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back-home-btn:hover {
+  text-decoration: underline;
+}

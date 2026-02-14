@@ -1,4 +1,5 @@
-<?php include 'partials/header.php'; ?>
+<?php include 'public/partials/header.php'; ?>
+
 
 <!-- SEARCH BAR -->
 <section class="search-section">
@@ -33,4 +34,4 @@
 
 </div>
 
-<?php include 'partials/footer.php'; ?>
+<?php include 'public/partials/footer.php'; ?>
