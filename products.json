@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "4K Smart TV",
+    "category": "Consumer Electronics",
+    "subcategory": "TV & Audio",
+    "price": 8999,
+    "image": "assets/images/product1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "DSLR Camera",
+    "category": "Consumer Electronics",
+    "subcategory": "Cameras",
+    "price": 4599,
+    "image": "assets/images/product2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Office Chair",
+    "category": "Office & Business",
+    "subcategory": "Office & Furniture",
+    "price": 1299,
+    "image": "assets/images/product3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Acoustic Guitar",
+    "category": "Consumer Electronics",
+    "subcategory": "Musical Instruments",
+    "price": 2999,
+    "image": "assets/images/product4.jpg"
+  }
+]
