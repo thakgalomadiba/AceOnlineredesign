@@ -30,5 +30,69 @@
     "subcategory": "Musical Instruments",
     "price": 2999,
     "image": "assets/images/product4.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Wireless Mouse",
+    "category": "Consumer Electronics",
+    "subcategory": "Computer Accessories",
+    "price": 299,
+    "image": "assets/images/product5.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Mechanical Keyboard",
+    "category": "Consumer Electronics",
+    "subcategory": "Computer Accessories",
+    "price": 899,
+    "image": "assets/images/product6.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Smartphone",
+    "category": "Consumer Electronics",
+    "subcategory": "Mobile Phones",
+    "price": 6999,
+    "image": "assets/images/product7.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Laptop",
+    "category": "Consumer Electronics",
+    "subcategory": "Computers",
+    "price": 12999,
+    "image": "assets/images/product8.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Office Desk",
+    "category": "Office & Business",
+    "subcategory": "Office & Furniture",
+    "price": 2399,
+    "image": "assets/images/product9.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Studio Microphone",
+    "category": "Consumer Electronics",
+    "subcategory": "Audio Equipment",
+    "price": 1599,
+    "image": "assets/images/product10.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Bluetooth Headphones",
+    "category": "Consumer Electronics",
+    "subcategory": "Audio Equipment",
+    "price": 999,
+    "image": "assets/images/product11.jpg"
+  },
+  {
+    "id": 12,
+    "name": "LED Desk Lamp",
+    "category": "Office & Business",
+    "subcategory": "Office Supplies",
+    "price": 399,
+    "image": "assets/images/product12.jpg"
   }
 ]

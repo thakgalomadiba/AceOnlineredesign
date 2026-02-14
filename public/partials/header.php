@@ -51,6 +51,7 @@ if (file_exists($categoriesFile)) {
       <a href="/contact.php">Contact</a>
       <a href="#">Drop Shipping</a>
       <a href="#">News</a>
+      <a href="products.php">Products</a>
     </nav>
 
     <!-- Cart -->
