@@ -4,11 +4,19 @@
 <!-- SEARCH BAR -->
 <section class="search-section">
   <div class="container search-container">
-    <div class="category-btn">ALL CATEGORIES ☰</div>
+    
+    <div class="category-wrapper">
+      <div class="category-btn" id="categoryToggle">
+        ALL CATEGORIES ☰
+      </div>
+        <div class="dropdown-menu" id="categoryDropdown"></div>
+    </div>
+
     <div class="search-box">
       <input type="text" placeholder="Search store">
       <button class="search-btn">🔍</button>
     </div>
+
   </div>
 </section>
 

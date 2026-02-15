@@ -1,11 +1,12 @@
 [
-  {
+{
     "id": 1,
     "name": "4K Smart TV",
     "category": "Consumer Electronics",
     "subcategory": "TV & Audio",
     "price": 8999,
-    "image": "assets/images/product1.jpg"
+    "image": "assets/images/product1.jpg",
+    "description": "Ultra HD 4K smart TV with HDR support and smart features."
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "category": "Consumer Electronics",
     "subcategory": "Cameras",
     "price": 4599,
-    "image": "assets/images/product2.jpg"
+    "image": "assets/images/product2.jpg",
+    "description": "High-resolution DSLR camera suitable for photography enthusiasts."
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "category": "Office & Business",
     "subcategory": "Office & Furniture",
     "price": 1299,
-    "image": "assets/images/product3.jpg"
+    "image": "assets/images/product3.jpg",
+    "description": "Ergonomic office chair with adjustable height and lumbar support."
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "category": "Consumer Electronics",
     "subcategory": "Musical Instruments",
     "price": 2999,
-    "image": "assets/images/product4.jpg"
+    "image": "assets/images/product4.jpg",
+    "description": "High-quality acoustic guitar for beginners and pros alike."
   },
   {
     "id": 5,
@@ -37,7 +41,8 @@
     "category": "Consumer Electronics",
     "subcategory": "Computer Accessories",
     "price": 299,
-    "image": "assets/images/product5.jpg"
+    "image": "assets/images/product5.jpg",
+    "description": "Ergonomic wireless mouse with adjustable DPI."
   },
   {
     "id": 6,
@@ -45,7 +50,8 @@
     "category": "Consumer Electronics",
     "subcategory": "Computer Accessories",
     "price": 899,
-    "image": "assets/images/product6.jpg"
+    "image": "assets/images/product6.jpg",
+    "description": "RGB mechanical keyboard with tactile switches for gaming."
   },
   {
     "id": 7,
@@ -53,7 +59,8 @@
     "category": "Consumer Electronics",
     "subcategory": "Mobile Phones",
     "price": 6999,
-    "image": "assets/images/product7.jpg"
+    "image": "assets/images/product7.jpg",
+    "description": "Latest model smartphone with high-resolution camera and fast processor."
   },
   {
     "id": 8,
@@ -61,7 +68,8 @@
     "category": "Consumer Electronics",
     "subcategory": "Computers",
     "price": 12999,
-    "image": "assets/images/product8.jpg"
+    "image": "assets/images/product8.jpg",
+    "description": "Powerful laptop for work and gaming with SSD storage."
   },
   {
     "id": 9,
@@ -69,23 +77,26 @@
     "category": "Office & Business",
     "subcategory": "Office & Furniture",
     "price": 2399,
-    "image": "assets/images/product9.jpg"
+    "image": "assets/images/product9.jpg",
+    "description": "Spacious office desk with cable management and storage drawers."
   },
   {
     "id": 10,
     "name": "Studio Microphone",
     "category": "Consumer Electronics",
-    "subcategory": "Audio Equipment",
+    "subcategory": "Audio Devices",
     "price": 1599,
-    "image": "assets/images/product10.jpg"
+    "image": "assets/images/product10.jpg",
+    "description": "Professional studio microphone for recording and streaming."
   },
   {
     "id": 11,
     "name": "Bluetooth Headphones",
     "category": "Consumer Electronics",
-    "subcategory": "Audio Equipment",
+    "subcategory": "Audio Devices",
     "price": 999,
-    "image": "assets/images/product11.jpg"
+    "image": "assets/images/product11.jpg",
+    "description": "Wireless Bluetooth headphones with noise-cancellation."
   },
   {
     "id": 12,
@@ -93,6 +104,798 @@
     "category": "Office & Business",
     "subcategory": "Office Supplies",
     "price": 399,
-    "image": "assets/images/product12.jpg"
-  }
-]
+    "image": "assets/images/product12.jpg",
+    "description": "Adjustable LED desk lamp with touch control and dimmer."
+  },
+  {
+    "id": 13,
+    "name": "Gaming Chair",
+    "category": "Gaming",
+    "subcategory": "Gaming Chairs",
+    "price": 2199,
+    "image": "assets/images/product13.jpg",
+    "description": "Comfortable gaming chair with adjustable armrests and lumbar support."
+  },
+  {
+    "id": 14,
+    "name": "External Hard Drive 1TB",
+    "category": "Consumer Electronics",
+    "subcategory": "Computer Accessories",
+    "price": 1299,
+    "image": "assets/images/product14.jpg",
+    "description": "Portable 1TB external hard drive for backup and storage."
+  },
+  {
+    "id": 15,
+    "name": "Electric Kettle",
+    "category": "Small Appliances",
+    "subcategory": "Kitchen Appliances",
+    "price": 499,
+    "image": "assets/images/product15.jpg",
+    "description": "1.5L electric kettle with auto shut-off and boil-dry protection."
+  },
+  {
+    "id": 16,
+    "name": "Hair Dryer",
+    "category": "Personal & Lifestyle",
+    "subcategory": "Beauty",
+    "price": 599,
+    "image": "assets/images/product16.jpg",
+    "description": "Powerful hair dryer with multiple heat and speed settings."
+  },
+  {
+    "id": 17,
+    "name": "Camping Tent",
+    "category": "Camping",
+    "subcategory": "Camping & Hiking",
+    "price": 1299,
+    "image": "assets/images/product17.jpg",
+    "description": "4-person waterproof camping tent with easy setup."
+  },
+  {
+    "id": 18,
+    "name": "Men's Running Shoes",
+    "category": "Fashion: Footwear",
+    "subcategory": "Men",
+    "price": 1299,
+    "image": "assets/images/product18.jpg",
+    "description": "Lightweight and comfortable running shoes for men."
+  },
+  {
+    "id": 19,
+    "name": "Women's Sandals",
+    "category": "Fashion: Footwear",
+    "subcategory": "Women",
+    "price": 899,
+    "image": "assets/images/product19.jpg",
+    "description": "Stylish and comfortable sandals for daily wear."
+  },
+  {
+    "id": 20,
+    "name": "Kids T-shirt",
+    "category": "Fashion: Clothing",
+    "subcategory": "Kids",
+    "price": 299,
+    "image": "assets/images/product20.jpg",
+    "description": "Soft cotton t-shirt for kids with fun prints."
+  },
+  {
+    "id": 21,
+    "name": "Men's Hoodie",
+    "category": "Fashion: Clothing",
+    "subcategory": "Men",
+    "price": 799,
+    "image": "assets/images/product21.jpg",
+    "description": "Warm hoodie with front pocket and adjustable hood."
+  },
+  {
+    "id": 22,
+    "name": "Women's Jacket",
+    "category": "Fashion: Clothing",
+    "subcategory": "Women",
+    "price": 1299,
+    "image": "assets/images/product22.jpg",
+    "description": "Stylish jacket suitable for winter and autumn."
+  },
+  {
+    "id": 23,
+    "name": "Blender",
+    "category": "Small Appliances",
+    "subcategory": "Kitchen Appliances",
+    "price": 699,
+    "image": "assets/images/product23.jpg",
+    "description": "High-speed blender with multiple speed settings."
+  },
+  {
+    "id": 24,
+    "name": "Smartwatch",
+    "category": "Consumer Electronics",
+    "subcategory": "Wearables",
+    "price": 1999,
+    "image": "assets/images/product24.jpg",
+    "description": "Smartwatch with heart rate monitor, GPS, and notifications."
+  },
+  {
+    "id": 25,
+    "name": "Electric Guitar",
+    "category": "Consumer Electronics",
+    "subcategory": "Musical Instruments",
+    "price": 3499,
+    "image": "assets/images/product25.jpg",
+    "description": "Electric guitar with solid body and professional pickups."
+  },
+  
+ {
+    "id": 26,
+    "name": "Gaming Mouse",
+    "category": "Gaming",
+    "subcategory": "Computer Accessories",
+    "price": 599,
+    "image": "assets/images/product26.jpg",
+    "description": "High-precision gaming mouse with RGB lighting."
+  },
+  {
+    "id": 27,
+    "name": "Monitor 27 inch",
+    "category": "Consumer Electronics",
+    "subcategory": "Computers",
+    "price": 3999,
+    "image": "assets/images/product27.jpg",
+    "description": "Full HD monitor with thin bezels and adjustable stand."
+  },
+  {
+    "id": 28,
+    "name": "Printer",
+    "category": "Office & Business",
+    "subcategory": "Office Equipment",
+    "price": 2599,
+    "image": "assets/images/product28.jpg",
+    "description": "All-in-one printer for home and office use."
+  },
+  {
+    "id": 29,
+    "name": "Scanner",
+    "category": "Office & Business",
+    "subcategory": "Office Equipment",
+    "price": 1499,
+    "image": "assets/images/product29.jpg",
+    "description": "High-resolution document scanner with USB connectivity."
+  },
+  {
+    "id": 30,
+    "name": "Projector",
+    "category": "Consumer Electronics",
+    "subcategory": "TV & Audio",
+    "price": 5999,
+    "image": "assets/images/product30.jpg",
+    "description": "Portable projector with Full HD display for home theater."
+  },
+  {
+    "id": 31,
+    "name": "Action Camera",
+    "category": "Consumer Electronics",
+    "subcategory": "Cameras",
+    "price": 2499,
+    "image": "assets/images/product31.jpg",
+    "description": "Compact action camera for outdoor adventures and sports."
+  },
+  {
+    "id": 32,
+    "name": "Camera Tripod",
+    "category": "Consumer Electronics",
+    "subcategory": "Camera Accessories",
+    "price": 799,
+    "image": "assets/images/product32.jpg",
+    "description": "Sturdy tripod suitable for DSLR and mirrorless cameras."
+  },
+  {
+    "id": 33,
+    "name": "Studio Lighting Kit",
+    "category": "Consumer Electronics",
+    "subcategory": "Lighting & Studio",
+    "price": 2199,
+    "image": "assets/images/product33.jpg",
+    "description": "Professional studio lighting kit for photography."
+  },
+  {
+    "id": 34,
+    "name": "Drum Set",
+    "category": "Consumer Electronics",
+    "subcategory": "Musical Instruments",
+    "price": 4999,
+    "image": "assets/images/product34.jpg",
+    "description": "Complete drum set for beginners and intermediate players."
+  },
+  {
+    "id": 35,
+    "name": "Keyboard Synthesizer",
+    "category": "Consumer Electronics",
+    "subcategory": "Musical Instruments",
+    "price": 3499,
+    "image": "assets/images/product35.jpg",
+    "description": "Electronic keyboard synthesizer with multiple voices and effects."
+  },
+  {
+    "id": 36,
+    "name": "Office File Organizer",
+    "category": "Office & Business",
+    "subcategory": "Filing & Organization",
+    "price": 299,
+    "image": "assets/images/product36.jpg",
+    "description": "Plastic file organizer for office desks."
+  },
+  {
+    "id": 37,
+    "name": "Desk Pen Holder",
+    "category": "Office & Business",
+    "subcategory": "Office Supplies",
+    "price": 149,
+    "image": "assets/images/product37.jpg",
+    "description": "Desk pen holder with multiple compartments."
+  },
+  {
+    "id": 38,
+    "name": "Marker Set",
+    "category": "Office & Business",
+    "subcategory": "Markers & Highlighters",
+    "price": 99,
+    "image": "assets/images/product38.jpg",
+    "description": "Set of colored markers for office or school use."
+  },
+  {
+    "id": 39,
+    "name": "Palette Knives",
+    "category": "Arts & Crafts",
+    "subcategory": "Palette Knives",
+    "price": 79,
+    "image": "assets/images/product39.jpg",
+    "description": "Set of palette knives for painting and art projects."
+  },
+  {
+    "id": 40,
+    "name": "Baby Stroller",
+    "category": "Family",
+    "subcategory": "Baby Furniture",
+    "price": 2999,
+    "image": "assets/images/product40.jpg",
+    "description": "Lightweight and foldable baby stroller for daily use."
+  },
+  {
+    "id": 41,
+    "name": "Baby Bath Tub",
+    "category": "Family",
+    "subcategory": "Baby Bathing",
+    "price": 599,
+    "image": "assets/images/product41.jpg",
+    "description": "Compact baby bathtub with non-slip base."
+  },
+  {
+    "id": 42,
+    "name": "Diaper Bag",
+    "category": "Family",
+    "subcategory": "Diapering & Changing",
+    "price": 699,
+    "image": "assets/images/product42.jpg",
+    "description": "Spacious diaper bag with multiple compartments."
+  },
+  {
+    "id": 43,
+    "name": "Pet Grooming Brush",
+    "category": "Pets",
+    "subcategory": "Pet Grooming Supplies",
+    "price": 199,
+    "image": "assets/images/product43.jpg",
+    "description": "Grooming brush suitable for dogs and cats."
+  },
+  {
+    "id": 44,
+    "name": "Pet Food Bowl",
+    "category": "Pets",
+    "subcategory": "Consumables",
+    "price": 149,
+    "image": "assets/images/product44.jpg",
+    "description": "Stainless steel food and water bowl for pets."
+  },
+  {
+    "id": 45,
+    "name": "Hair Straightener",
+    "category": "Personal & Lifestyle",
+    "subcategory": "Hair Care",
+    "price": 799,
+    "image": "assets/images/product45.jpg",
+    "description": "Ceramic hair straightener for smooth and shiny hair."
+  },
+  {
+    "id": 46,
+    "name": "Camping Sleeping Bag",
+    "category": "Camping",
+    "subcategory": "Camping & Hiking",
+    "price": 999,
+    "image": "assets/images/product46.jpg",
+    "description": "Comfortable sleeping bag for outdoor adventures."
+  },
+  {
+    "id": 47,
+    "name": "Suitcase 24 inch",
+    "category": "Luggage",
+    "subcategory": "Suitcases",
+    "price": 1499,
+    "image": "assets/images/product47.jpg",
+    "description": "Durable 24 inch suitcase with spinner wheels."
+  },
+  {
+    "id": 48,
+    "name": "Road Bike",
+    "category": "Cycling",
+    "subcategory": "Equipment",
+    "price": 9999,
+    "image": "assets/images/product48.jpg",
+    "description": "Lightweight road bike for long-distance cycling."
+  },
+  {
+    "id": 49,
+    "name": "Men's Sneakers",
+    "category": "Fashion: Footwear",
+    "subcategory": "Men",
+    "price": 1299,
+    "image": "assets/images/product49.jpg",
+    "description": "Comfortable everyday sneakers for men."
+  },
+  {
+    "id": 50,
+    "name": "Women's Heels",
+    "category": "Fashion: Footwear",
+    "subcategory": "Women",
+    "price": 1099,
+    "image": "assets/images/product50.jpg",
+    "description": "Elegant heels for parties and formal occasions."
+  },
+  {
+    "id": 51,
+    "name": "Kids Jeans",
+    "category": "Fashion: Clothing",
+    "subcategory": "Kids",
+    "price": 399,
+    "image": "assets/images/product51.jpg",
+    "description": "Durable and comfortable jeans for kids."
+  },
+  {
+    "id": 52,
+    "name": "Men's T-Shirt",
+    "category": "Fashion: Clothing",
+    "subcategory": "Men",
+    "price": 299,
+    "image": "assets/images/product52.jpg",
+    "description": "Casual cotton t-shirt for men."
+  },
+  {
+    "id": 53,
+    "name": "Women's Top",
+    "category": "Fashion: Clothing",
+    "subcategory": "Women",
+    "price": 399,
+    "image": "assets/images/product53.jpg",
+    "description": "Stylish top for everyday wear."
+  },
+  {
+    "id": 54,
+    "name": "Microwave Oven",
+    "category": "Small Appliances",
+    "subcategory": "Kitchen Appliances",
+    "price": 1999,
+    "image": "assets/images/product54.jpg",
+    "description": "Compact microwave oven with multiple power settings."
+  },
+  {
+    "id": 55,
+    "name": "Electric Fan",
+    "category": "Homeware: Kitchen & Decor",
+    "subcategory": "Climate Control Appliances",
+    "price": 799,
+    "image": "assets/images/product55.jpg",
+    "description": "Portable electric fan for home and office use."
+  },  {
+    "id": 56,
+    "name": "Refrigerator 300L",
+    "category": "Large Appliances",
+    "subcategory": "Kitchen Appliance",
+    "price": 7999,
+    "image": "assets/images/product56.jpg",
+    "description": "Energy-efficient 300L refrigerator with frost-free technology."
+  },
+  {
+    "id": 57,
+    "name": "Washing Machine",
+    "category": "Large Appliances",
+    "subcategory": "Household Appliances",
+    "price": 6999,
+    "image": "assets/images/product57.jpg",
+    "description": "Front-load washing machine with multiple wash programs."
+  },
+  {
+    "id": 58,
+    "name": "Electric Stove",
+    "category": "Large Appliances",
+    "subcategory": "Kitchen Appliance",
+    "price": 4999,
+    "image": "assets/images/product58.jpg",
+    "description": "4-burner electric stove with oven and timer functions."
+  },
+  {
+    "id": 59,
+    "name": "Car Polisher",
+    "category": "Automotive",
+    "subcategory": "Vehicle Maintenance, Care & Detailing",
+    "price": 899,
+    "image": "assets/images/product59.jpg",
+    "description": "Powerful car polisher for scratch removal and shine."
+  },
+  {
+    "id": 60,
+    "name": "Car Jack 2 Ton",
+    "category": "Automotive",
+    "subcategory": "Jacks",
+    "price": 599,
+    "image": "assets/images/product60.jpg",
+    "description": "Hydraulic car jack suitable for most vehicles."
+  },
+  {
+    "id": 61,
+    "name": "Garden Lawn Mower",
+    "category": "Garden Pool & Patio",
+    "subcategory": "Lawn & Garden",
+    "price": 3499,
+    "image": "assets/images/product61.jpg",
+    "description": "Electric lawn mower for medium to large gardens."
+  },
+  {
+    "id": 62,
+    "name": "Outdoor Umbrella",
+    "category": "Garden Pool & Patio",
+    "subcategory": "Outdoor Umbrellas & Sunshades",
+    "price": 1499,
+    "image": "assets/images/product62.jpg",
+    "description": "Large outdoor umbrella for patio or garden use."
+  },
+  {
+    "id": 63,
+    "name": "BBQ Braai Grill",
+    "category": "Garden Pool & Patio",
+    "subcategory": "Braais & Outdoor Cooking",
+    "price": 2499,
+    "image": "assets/images/product63.jpg",
+    "description": "Stainless steel braai grill with adjustable height."
+  },
+  {
+    "id": 64,
+    "name": "Patio Chair Set",
+    "category": "Garden Pool & Patio",
+    "subcategory": "Chairs",
+    "price": 1999,
+    "image": "assets/images/product64.jpg",
+    "description": "Set of 4 comfortable chairs for outdoor use."
+  },
+  {
+    "id": 65,
+    "name": "LED Ceiling Light",
+    "category": "Homeware: Kitchen & Decor",
+    "subcategory": "Lighting",
+    "price": 899,
+    "image": "assets/images/product65.jpg",
+    "description": "Energy-saving LED ceiling light with modern design."
+  },
+  {
+    "id": 66,
+    "name": "Cookware Set",
+    "category": "Homeware: Kitchen & Decor",
+    "subcategory": "Cookware & Bakeware",
+    "price": 1299,
+    "image": "assets/images/product66.jpg",
+    "description": "Non-stick cookware set with 6 pieces."
+  },
+  {
+    "id": 67,
+    "name": "Kitchen Knife Set",
+    "category": "Homeware: Kitchen & Decor",
+    "subcategory": "Kitchen Tools & Utensils",
+    "price": 699,
+    "image": "assets/images/product67.jpg",
+    "description": "Professional kitchen knife set with wooden block."
+  },
+  {
+    "id": 68,
+    "name": "Food Storage Containers",
+    "category": "Homeware: Kitchen & Decor",
+    "subcategory": "Food Storage",
+    "price": 299,
+    "image": "assets/images/product68.jpg",
+    "description": "Set of airtight food storage containers."
+  },
+  {
+    "id": 69,
+    "name": "Barware Set",
+    "category": "Homeware: Kitchen & Decor",
+    "subcategory": "Barware",
+    "price": 499,
+    "image": "assets/images/product69.jpg",
+    "description": "Barware set with shaker, jigger, and glasses."
+  },
+  {
+    "id": 70,
+    "name": "Hot Water Bottle",
+    "category": "Homeware: Kitchen & Decor",
+    "subcategory": "Hot Water Bottles",
+    "price": 199,
+    "image": "assets/images/product70.jpg",
+    "description": "Comfortable hot water bottle for winter use."
+  },
+  {
+    "id": 71,
+    "name": "Bathroom Cabinet",
+    "category": "Homeware: Bed & Bathroom",
+    "subcategory": "Cabinets & Storage",
+    "price": 1299,
+    "image": "assets/images/product71.jpg",
+    "description": "Bathroom cabinet with mirror and storage shelves."
+  },
+  {
+    "id": 72,
+    "name": "Towel Rack",
+    "category": "Homeware: Bed & Bathroom",
+    "subcategory": "Bathroom Accessories",
+    "price": 499,
+    "image": "assets/images/product72.jpg",
+    "description": "Stainless steel towel rack for bathrooms."
+  },
+  {
+    "id": 73,
+    "name": "Bed Frame Queen",
+    "category": "Homeware: Bed & Bathroom",
+    "subcategory": "Beds & Accessories",
+    "price": 3999,
+    "image": "assets/images/product73.jpg",
+    "description": "Queen-size bed frame with sturdy wood construction."
+  },
+  {
+    "id": 74,
+    "name": "Memory Foam Pillow",
+    "category": "Homeware: Bed & Bathroom",
+    "subcategory": "Storage & Organization",
+    "price": 599,
+    "image": "assets/images/product74.jpg",
+    "description": "Comfortable memory foam pillow for better sleep."
+  },
+  {
+    "id": 75,
+    "name": "Power Drill",
+    "category": "DIY",
+    "subcategory": "Power Tools",
+    "price": 1299,
+    "image": "assets/images/product75.jpg",
+    "description": "Cordless power drill with adjustable torque."
+  },
+  {
+    "id": 76,
+    "name": "Hammer",
+    "category": "DIY",
+    "subcategory": "Hand Tools",
+    "price": 199,
+    "image": "assets/images/product76.jpg",
+    "description": "Steel hammer with comfortable grip."
+  },
+  {
+    "id": 77,
+    "name": "Screwdriver Set",
+    "category": "DIY",
+    "subcategory": "Hand Tools",
+    "price": 299,
+    "image": "assets/images/product77.jpg",
+    "description": "Set of precision screwdrivers for home projects."
+  },
+  {
+    "id": 78,
+    "name": "Paint Set",
+    "category": "DIY",
+    "subcategory": "Paint & Supplies",
+    "price": 499,
+    "image": "assets/images/product78.jpg",
+    "description": "Acrylic paint set for arts, crafts, and DIY projects."
+  },
+  {
+    "id": 79,
+    "name": "Electrical Tape",
+    "category": "DIY",
+    "subcategory": "Power & Electrical Supplies",
+    "price": 99,
+    "image": "assets/images/product79.jpg",
+    "description": "Durable electrical tape for wiring and repairs."
+  },
+  {
+    "id": 80,
+    "name": "Smart Bulb",
+    "category": "DIY",
+    "subcategory": "Smart Lighting",
+    "price": 299,
+    "image": "assets/images/product80.jpg",
+    "description": "Wi-Fi smart bulb controllable via mobile app."
+  },
+  {
+    "id": 81,
+    "name": "Toolbox",
+    "category": "DIY",
+    "subcategory": "Hardware Fasteners",
+    "price": 599,
+    "image": "assets/images/product81.jpg",
+    "description": "Portable toolbox with multiple compartments."
+  },
+  {
+    "id": 82,
+    "name": "Air Fryer",
+    "category": "Small Appliances",
+    "subcategory": "Kitchen Appliances",
+    "price": 1999,
+    "image": "assets/images/product82.jpg",
+    "description": "Digital air fryer for healthier cooking."
+  },
+  {
+    "id": 83,
+    "name": "Toaster",
+    "category": "Small Appliances",
+    "subcategory": "Kitchen Appliances",
+    "price": 499,
+    "image": "assets/images/product83.jpg",
+    "description": "2-slice toaster with adjustable browning control."
+  },
+  {
+    "id": 84,
+    "name": "Vacuum Cleaner",
+    "category": "Household Appliances",
+    "subcategory": "General Cleaning",
+    "price": 2999,
+    "image": "assets/images/product84.jpg",
+    "description": "High-power vacuum cleaner for home use."
+  },
+  {
+    "id": 85,
+    "name": "Ceiling Fan",
+    "category": "Homeware: Kitchen & Decor",
+    "subcategory": "Climate Control Appliances",
+    "price": 1299,
+    "image": "assets/images/product85.jpg",
+    "description": "Ceiling fan with adjustable speed settings."
+  },
+  {
+    "id": 86,
+    "name": "Wall Clock",
+    "category": "Homeware: Kitchen & Decor",
+    "subcategory": "Decor",
+    "price": 299,
+    "image": "assets/images/product86.jpg",
+    "description": "Modern wall clock with silent movement."
+  },
+  {
+    "id": 87,
+    "name": "Garden Hose",
+    "category": "Garden Pool & Patio",
+    "subcategory": "Weed & Pest Control",
+    "price": 499,
+    "image": "assets/images/product87.jpg",
+    "description": "Durable garden hose with adjustable nozzle."
+  },
+  {
+    "id": 88,
+    "name": "Patio Heater",
+    "category": "Garden Pool & Patio",
+    "subcategory": "Climate Control Appliances",
+    "price": 2999,
+    "image": "assets/images/product88.jpg",
+    "description": "Outdoor patio heater with propane gas."
+  },
+  {
+    "id": 89,
+    "name": "Electric Motorcycle",
+    "category": "Automotive",
+    "subcategory": "Electric Motor Cycle",
+    "price": 15999,
+    "image": "assets/images/product89.jpg",
+    "description": "Eco-friendly electric motorcycle with long battery life."
+  },
+  {
+    "id": 90,
+    "name": "Hand Cleaner",
+    "category": "Automotive",
+    "subcategory": "Hand Cleaner",
+    "price": 199,
+    "image": "assets/images/product90.jpg",
+    "description": "Industrial hand cleaner for grease and dirt removal."
+  },
+  {
+    "id": 91,
+    "name": "Smart TV 55 inch",
+    "category": "Consumer Electronics",
+    "subcategory": "TV & Audio",
+    "price": 10999,
+    "image": "assets/images/product91.jpg",
+    "description": "55-inch smart TV with 4K resolution and HDR10+."
+  },
+  {
+    "id": 92,
+    "name": "Wireless Earbuds",
+    "category": "Consumer Electronics",
+    "subcategory": "Audio Devices",
+    "price": 1299,
+    "image": "assets/images/product92.jpg",
+    "description": "Compact wireless earbuds with charging case."
+  },
+  {
+    "id": 93,
+    "name": "Laptop Stand",
+    "category": "Consumer Electronics",
+    "subcategory": "Computer Accessories",
+    "price": 399,
+    "image": "assets/images/product93.jpg",
+    "description": "Adjustable laptop stand for ergonomic typing."
+  },
+  {
+    "id": 94,
+    "name": "Graphics Tablet",
+    "category": "Consumer Electronics",
+    "subcategory": "Computer Accessories",
+    "price": 1999,
+    "image": "assets/images/product94.jpg",
+    "description": "Graphics tablet for digital drawing and design."
+  },
+  {
+    "id": 95,
+    "name": "Desk Organizer",
+    "category": "Office & Business",
+    "subcategory": "Filing & Organization",
+    "price": 299,
+    "image": "assets/images/product95.jpg",
+    "description": "Compact desk organizer for stationery and documents."
+  },
+  {
+    "id": 96,
+    "name": "Office Lamp",
+    "category": "Office & Business",
+    "subcategory": "Lighting",
+    "price": 499,
+    "image": "assets/images/product96.jpg",
+    "description": "LED desk lamp with adjustable brightness."
+  },
+  {
+    "id": 97,
+    "name": "Baby High Chair",
+    "category": "Family",
+    "subcategory": "Baby Furniture",
+    "price": 1799,
+    "image": "assets/images/product97.jpg",
+    "description": "Adjustable high chair for babies and toddlers."
+  },
+  {
+    "id": 98,
+    "name": "Pet Cage",
+    "category": "Pets",
+    "subcategory": "Consumables",
+    "price": 1499,
+    "image": "assets/images/product98.jpg",
+    "description": "Pet cage suitable for small dogs and cats."
+  },
+  {
+    "id": 99,
+    "name": "Camping Lantern",
+    "category": "Camping",
+    "subcategory": "Camping & Hiking",
+    "price": 399,
+    "image": "assets/images/product99.jpg",
+    "description": "Portable LED camping lantern with rechargeable battery."
+  },
+  {
+    "id": 100,
+    "name": "Men's Wallet",
+    "category": "Fashion: Accessories",
+    "subcategory": "Men",
+    "price": 499,
+    "image": "assets/images/product100.jpg",
+    "description": "Leather wallet with multiple compartments for cards and cash."
+  }]

@@ -17,9 +17,9 @@
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <h3>All Categories</h3>
-    <ul id="category-list">
+    <div id="category-list" class="category-grid">
       <!-- Categories loaded dynamically with JS -->
-    </ul>
+  </div>
   </aside>
 
   <!-- PRODUCTS GRID -->

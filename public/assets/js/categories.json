@@ -1,0 +1,47 @@
+[
+  {
+    "id": "consumer-electronics",
+    "name": "Consumer Electronics",
+    "subcategories": [
+      {
+        "id": "tv-audio",
+        "name": "TV & Audio",
+        "subcategories": [
+          { "id": "audio-devices", "name": "Audio Devices" },
+          { "id": "audio-players", "name": "Audio Players & Recorders" },
+          { "id": "televisions", "name": "Televisions" }
+        ]
+      },
+      { "id": "electronics-accessories", "name": "Electronics Accessories" },
+      {
+        "id": "cameras",
+        "name": "Cameras",
+        "subcategories": [
+          { "id": "camera-parts", "name": "Camera Parts & Accessories" },
+          { "id": "action-camera", "name": "Action Camera Accessories" },
+          { "id": "lighting-studio", "name": "Lighting & Studio" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": "office-business",
+    "name": "Office & Business",
+    "subcategories": [
+      {
+        "id": "stationery",
+        "name": "Stationery",
+        "subcategories": [
+          { "id": "pens", "name": "Pens" },
+          { "id": "markers", "name": "Markers & Highlighters" },
+          { "id": "filing", "name": "Filing & Organization" }
+        ]
+      },
+      {
+        "id": "office-furniture",
+        "name": "Office Furniture"
+      }
+    ]
+  }
+]

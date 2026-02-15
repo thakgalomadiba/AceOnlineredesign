@@ -28,7 +28,7 @@ if (!$product) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php echo $product['name']; ?> - ACE Online</title>
+  <title><?php echo htmlspecialchars($product['name']); ?> - ACE Online</title>
   <link rel="stylesheet" href="public/assets/style.css">
 </head>
 <body>
@@ -42,22 +42,25 @@ if (!$product) {
 
       <!-- Product Image -->
       <div class="product-image">
-       <img src="public/<?php echo $product['image']; ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
-
+        <img src="public/<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
       </div>
 
       <!-- Product Info -->
       <div class="product-info">
-        <h1><?php echo $product['name']; ?></h1>
-        <p class="category"><?php echo $product['category'] . " / " . $product['subcategory']; ?></p>
+        <h1><?php echo htmlspecialchars($product['name']); ?></h1>
+        <p class="category"><?php echo htmlspecialchars($product['category'] . " / " . $product['subcategory']); ?></p>
         <p class="price">R <?php echo number_format($product['price'], 2); ?></p>
+
+        <!-- Description from JSON -->
         <p class="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fermentum nisi at est vehicula, at sagittis justo gravida.
+          <?php echo nl2br(htmlspecialchars($product['description'])); ?>
         </p>
 
         <button class="primary-btn add-to-cart" data-id="<?php echo $product['id']; ?>">Add to Cart</button>
         <br><br>
-        <a href="categories.php" class="back-btn">← Back to Categories</a>
+
+        <!-- Back button goes to previous page -->
+        <a href="javascript:history.back()" class="back-btn">← Back</a>
       </div>
 
     </div>

@@ -4,8 +4,8 @@
   </div>
 </footer>
 
-<script src="assets/js/categories.js"></script>
-<script src="assets/js/render.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="public/assets/js/categories.js"></script>
+<script src="public/assets/js/render.js"></script>
+<script src="public/assets/js/main.js"></script>
 </body>
 </html>

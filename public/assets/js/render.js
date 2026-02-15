@@ -1,34 +1,37 @@
-// Render categories dynamically
-function renderCategories(categories) {
-  const ul = document.getElementById('category-list');
+document.addEventListener("DOMContentLoaded", () => {
 
-  categories.forEach(category => {
-    const li = document.createElement('li');
-    li.textContent = category.name;
+  console.log("RENDER JS LOADED");
 
-    // Check if category has subcategories
-    if (category.subcategories.length > 0) {
-      li.classList.add('has-sub');
+  async function loadCategories() {
+    try {
+      const response = await fetch('/public/assets/js/categories.json');
 
-      const subUl = document.createElement('ul');
-      subUl.classList.add('submenu');
+      if (!response.ok) {
+        throw new Error("HTTP error " + response.status);
+      }
 
-      category.subcategories.forEach(sub => {
-        const subLi = document.createElement('li');
-        subLi.textContent = sub;
-        subUl.appendChild(subLi);
+      const categories = await response.json();
+
+      console.log("Categories loaded:", categories);
+
+      const container = document.getElementById("category-list");
+
+      categories.forEach(category => {
+        const card = document.createElement("div");
+        card.classList.add("category-card");
+
+        card.innerHTML = `
+          <img src="${category.image}" alt="${category.name}">
+          <h4>${category.name}</h4>
+        `;
+
+        container.appendChild(card);
       });
 
-      li.appendChild(subUl);
-
-      // Mobile: click to toggle submenu
-      li.addEventListener('click', function(e) {
-        e.stopPropagation();
-        subUl.style.display = subUl.style.display === 'block' ? 'none' : 'block';
-        li.classList.toggle('open');
-      });
+    } catch (error) {
+      console.error("Error loading categories:", error);
     }
+  }
 
-    ul.appendChild(li);
-  });
-}
+  loadCategories();
+});
