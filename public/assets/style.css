@@ -551,7 +551,7 @@ footer {
 }
 
 .cart-container:hover .cart-dropdown {
-  display: block; /* show on hover; optional: can toggle via JS */
+  display: block; 
 }
 
 .cart-dropdown ul {
@@ -709,4 +709,33 @@ footer {
   display: none;
   font-size: 24px;
   cursor: pointer;
+}
+.cart-container:hover .cart-dropdown {
+    display: block;
+}.cart-dropdown {
+    display: none; /* hidden by default */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 300px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 100;
+    padding: 10px;
+}
+
+/* When active, show dropdown */
+.cart-dropdown.active {
+    display: block;
+}
+.cart-dropdown {
+    transition: opacity 0.2s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.cart-dropdown.active {
+    opacity: 1;
+    pointer-events: auto;
 }
