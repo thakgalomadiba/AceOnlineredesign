@@ -1,10 +1,6 @@
 <?php
-// Load categories dynamically
-$categoriesFile = 'categories.json';
-$categories = [];
-if (file_exists($categoriesFile)) {
-    $categories = json_decode(file_get_contents($categoriesFile), true);
-}
+// header.php
+// session_start() should already be called on the main page
 ?>
 <header class="main-header">
   <link rel="stylesheet" href="public/assets/style.css">
@@ -18,36 +14,23 @@ if (file_exists($categoriesFile)) {
     <!-- Navigation -->
     <nav class="main-nav">
       <a href="/index.php">Home</a>
+      <a href="/products.php">Products</a>
 
-      <?php if (!empty($categories)): ?>
-        <?php foreach ($categories as $cat): ?>
-          <div class="nav-dropdown">
-            <a href="#"><?php echo htmlspecialchars($cat['name']); ?> ▾</a>
-            <?php if (!empty($cat['subcategories'])): ?>
-              <div class="dropdown-content">
-                <?php foreach ($cat['subcategories'] as $sub): ?>
-                  <a href="#"><?php echo htmlspecialchars($sub); ?></a>
-                <?php endforeach; ?>
-              </div>
-            <?php endif; ?>
-          </div>
-        <?php endforeach; ?>
+      <!-- Check if customer is logged in -->
+      <?php if(isset($_SESSION['customer_name'])): ?>
+        <div class="nav-user">
+          <span>Welcome, <?php echo htmlspecialchars($_SESSION['customer_name']); ?>!</span>
+          <a href="/logout.php" class="logout-btn">Logout</a>
+        </div>
+      <?php else: ?>
+        <a href="/login.php">Login</a>
+        <a href="/register.php">Register</a>
       <?php endif; ?>
-
-      <!-- Static nav links -->
-      <a href="#">New In Store</a>
-      <a href="#">Brands</a>
-      <a href="/contact.php">Contact</a>
-      <a href="#">Drop Shipping</a>
-      <a href="#">News</a>
-      <a href="products.php">Products</a>
     </nav>
 
-    <!-- Cart Dropdown -->
+    <!-- Cart -->
     <div class="cart-container">
-      <button class="cart-btn">
-        🛒 Cart (<span id="cart-count">0</span>)
-      </button>
+      <button class="cart-btn">🛒 Cart (<span id="cart-count">0</span>)</button>
       <div class="cart-dropdown" id="cart-dropdown">
         <ul id="cart-items"></ul>
         <div class="cart-total">
