@@ -1,0 +1,65 @@
+/* ======================================================
+   DROPDOWN.CSS
+====================================================== */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.account-dropdown,
+.cart-container {
+    position: relative;
+}
+
+.account-btn,
+.cart-btn {
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px 0;
+}
+
+/* Dropdown */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    min-width: 200px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    padding: 8px 0;
+    display: none;
+    z-index: 9999;
+}
+
+.account-dropdown:hover .dropdown-menu,
+.cart-container:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: var(--text);
+    transition: background 0.2s;
+}
+
+.dropdown-menu a:hover {
+    background: #f3f4f6;
+}
+
+/* Cart Badge */
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background: var(--primary);
+    color: white;
+    font-size: 11px;
+    padding: 3px 6px;
+    border-radius: 50px;
+}

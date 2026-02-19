@@ -1,0 +1,38 @@
+/* ======================================================
+   BASE.CSS — Global Reset & Brand System
+====================================================== */
+
+/* Root Variables */
+:root {
+    --primary: #ff6600;
+    --primary-dark: #e65c00;
+    --dark: #1f2937;
+    --light-bg: #f5f6f8;
+    --border: #e5e7eb;
+    --text: #111827;
+    --muted: #6b7280;
+    --white: #ffffff;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--light-bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}

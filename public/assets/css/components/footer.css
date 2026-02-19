@@ -1,0 +1,13 @@
+/* ======================================================
+   FOOTER.CSS
+====================================================== */
+
+footer {
+    margin-top: 60px;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 40px 0;
+    font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+}
