@@ -5,10 +5,10 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 // Database configuration
-$servername = "localhost";     // Usually "localhost"
-$username   = "root";          // Your MySQL username
-$password   = "";              // Your MySQL password
-$dbname     = "ace_online";    // Your database name
+$servername = "localhost";     
+$username   = "root";          
+$password   = "";              
+$dbname     = "ace_online";   
 
 // Create MySQL connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -21,7 +21,5 @@ if ($conn->connect_error) {
 // Optional: set charset to avoid encoding issues
 $conn->set_charset("utf8");
 
-// Usage example: 
-// $result = $conn->query("SELECT * FROM users");
-// while ($row = $result->fetch_assoc()) { ... }
+
 ?>
