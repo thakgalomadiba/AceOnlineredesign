@@ -22,6 +22,7 @@ $isLoggedIn = isset($_SESSION['customer_id']);
 <link rel="stylesheet" href="/public/assets/css/components/cards.css">
 <link rel="stylesheet" href="/public/assets/css/components/dropdown.css">
 <link rel="stylesheet" href="/public/assets/css/pages/products.css">
+<link rel="stylesheet" href="/public/assets/css/pages/home.css">
 
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">

@@ -1,82 +1,42 @@
-/* ===== MAIN LAYOUT ===== */
-.layout {
-  display: flex;
-  gap: 20px;
-  padding: 20px 0;
-}
+/* ===============================
+   HERO BANNER
+=================================*/
 
-/* ===== SIDEBAR ===== */
-.sidebar {
-  width: 250px;
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.sidebar h3 {
-  margin-bottom: 15px;
-  font-size: 18px;
-  border-bottom: 2px solid #f1f1f1;
-  padding-bottom: 8px;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar ul li {
-  margin-bottom: 10px;
-}
-
-.sidebar ul li a {
-  text-decoration: none;
-  color: #333;
-  font-size: 14px;
-  transition: 0.3s;
-}
-
-.sidebar ul li a:hover {
-  color: #007bff;
-}
-
-/* ===== HERO SECTION ===== */
-.hero {
-  flex: 1;
+.hero-banner {
   background: linear-gradient(135deg, #007bff, #0056b3);
-  border-radius: 10px;
+  min-height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 400px;
-  color: white;
   text-align: center;
+  color: white;
   padding: 40px;
 }
 
-.hero-content h1 {
+.hero-text h1 {
   font-size: 42px;
   margin-bottom: 15px;
 }
 
-.hero-content p {
+.hero-text p {
   font-size: 18px;
   margin-bottom: 25px;
   opacity: 0.9;
 }
 
-/* ===== BUTTON ===== */
+
+/* ===============================
+   PRIMARY BUTTON
+=================================*/
+
 .primary-btn {
   background: white;
   color: #007bff;
-  border: none;
   padding: 12px 30px;
-  font-size: 16px;
   border-radius: 30px;
-  cursor: pointer;
-  transition: 0.3s ease;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
 .primary-btn:hover {
@@ -84,17 +44,181 @@
   transform: translateY(-2px);
 }
 
-/* ===== RESPONSIVE ===== */
+
+/* ===============================
+   CATEGORY SECTION
+=================================*/
+
+.home-categories {
+  padding: 60px 0;
+}
+
+.home-categories h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+
+/* Category Grid */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+
+/* Category Card */
+
+.category-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+}
+
+
+/* ===============================
+   FEATURED PRODUCTS
+=================================*/
+
+.featured-products {
+  padding: 60px 0;
+}
+
+.featured-products h2 {
+  margin-bottom: 30px;
+}
+
+
+/* Product Grid */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+
+/* ===============================
+   PROMO BANNER
+=================================*/
+
+.promo-banner {
+  background: #111;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.promo-content h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.promo-content p {
+  margin-bottom: 20px;
+}
+
+.secondary-btn {
+  background: #007bff;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.secondary-btn:hover {
+  background: #0056b3;
+}
+
+
+/* ===============================
+   RESPONSIVE
+=================================*/
+
 @media (max-width: 992px) {
-  .layout {
-    flex-direction: column;
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .sidebar {
-    width: 100%;
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .hero {
-    min-height: 300px;
+}
+
+@media (max-width: 600px) {
+
+  .category-grid {
+    grid-template-columns: 1fr;
   }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+
+}
+
+/* ===============================
+   GRID CONTROL FOR CATEGORIES
+=================================*/
+
+.category-menu{
+  list-style:none;
+  padding:0;
+  margin:0;
+  width:250px;
+  background:#fff;
+  border:1px solid #ddd;
+}
+
+.category-item{
+  position:relative;
+  padding:12px 16px;
+  cursor:pointer;
+  border-bottom:1px solid #eee;
+}
+
+.category-item:hover{
+  background:#f5f5f5;
+}
+
+.subcategories{
+  display:none;
+  position:absolute;
+  left:100%;
+  top:0;
+  background:#fff;
+  border:1px solid #ddd;
+  min-width:200px;
+  list-style:none;
+  padding:10px 0;
+}
+
+.subcategories li{
+  padding:10px 15px;
+  white-space:nowrap;
+}
+
+.subcategories li:hover{
+  background:#f0f0f0;
+}
+
+/* THIS SHOWS THE SUBMENU ON HOVER */
+.category-item:hover .subcategories{
+  display:block;
 }
