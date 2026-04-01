@@ -1,6 +1,8 @@
 <?php
 session_start();
-require '../public/partials/db.php';
+$base_url = '../'; // relative path from admin folder to project root
+require $base_url . 'public/partials/db.php';
+include $base_url . 'public/partials/header.php';
 
 // =======================
 // Handle Add Product
