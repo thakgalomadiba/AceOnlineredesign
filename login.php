@@ -7,28 +7,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
-    $stmt = $conn->prepare("SELECT id, name, password FROM customers WHERE email = ?");
+    // Initialize variables
+    $id = null;
+    $name = null;
+    $hash = null;
+    $role = null;
+
+    $stmt = $conn->prepare("SELECT id, name, password, role FROM customers WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
-    $stmt->bind_result($id, $name, $hash);
-    $stmt->fetch();
+    $stmt->bind_result($id, $name, $hash, $role);
+
+    $userFound = $stmt->fetch();
     $stmt->close();
 
-    if ($id && password_verify($password, $hash)) {
+    if ($userFound && password_verify($password, $hash)) {
 
         session_regenerate_id(true);
 
         $_SESSION['customer_id'] = $id;
         $_SESSION['customer_name'] = $name;
+        $_SESSION['customer_role'] = $role;
 
-        header("Location: index.php");
-        exit;
+        if ($role === 'admin') {
+            header("Location: admin/index.php");
+            exit;
+        } else {
+            header("Location: index.php");
+            exit;
+        }
+
     } else {
         $error = "Invalid email or password";
     }
 }
 ?>
-
 <?php require 'public/partials/header.php'; ?>
 
 <div class="container">

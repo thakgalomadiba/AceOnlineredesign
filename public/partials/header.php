@@ -7,6 +7,10 @@ $cartCount = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
 $isLoggedIn = isset($_SESSION['customer_id']);
 ?>
 
+<?php if (isset($_SESSION['customer_role']) && $_SESSION['customer_role'] === 'admin'): ?>
+    <a href="/admin/index.php">Admin Panel</a>
+<?php endif; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
