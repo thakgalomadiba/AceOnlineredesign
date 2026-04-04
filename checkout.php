@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'public/partials/db.php'; // Database connection
+require 'public/partials/db.php';
 include 'public/partials/header.php';
 
 // Redirect guests to login
@@ -9,65 +9,178 @@ if (!isset($_SESSION['customer_id'])) {
     exit;
 }
 
-// Handle order submission
+$customerId = (int) $_SESSION['customer_id'];
 $orderSuccess = false;
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cart_data'])) {
-    $customer_id = $_SESSION['customer_id'];
-    $cart_data = json_decode($_POST['cart_data'], true); // Cart sent from JS
+$orderNumber = '';
+$productsInCart = [];
+$total = 0;
+$cartId = null;
 
-    if (!empty($cart_data)) {
-        $total_price = 0;
+// =======================
+// Get active cart
+// =======================
+$stmt = $conn->prepare("SELECT id FROM cart WHERE customer_id = ? AND status = 'active' LIMIT 1");
+$stmt->bind_param("i", $customerId);
+$stmt->execute();
+$result = $stmt->get_result();
+$cart = $result->fetch_assoc();
 
-        // Calculate total
-        foreach ($cart_data as $item) {
-            $stmt = $conn->prepare("SELECT price FROM products WHERE id=?");
-            $stmt->bind_param("i", $item['id']);
-            $stmt->execute();
-            $stmt->bind_result($price);
-            $stmt->fetch();
-            $total_price += $price * $item['quantity'];
-            $stmt->close();
+if ($cart) {
+    $cartId = $cart['id'];
+}
+
+// =======================
+// Fetch cart items
+// =======================
+if ($cartId) {
+    $stmt = $conn->prepare("
+        SELECT 
+            ci.product_id,
+            ci.quantity,
+            ci.unit_price,
+            p.name,
+            p.stock_quantity
+        FROM cart_items ci
+        INNER JOIN products p ON ci.product_id = p.id
+        WHERE ci.cart_id = ?
+    ");
+    $stmt->bind_param("i", $cartId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    while ($item = $result->fetch_assoc()) {
+        $subtotal = $item['unit_price'] * $item['quantity'];
+        $total += $subtotal;
+
+        $productsInCart[] = [
+            'id' => $item['product_id'],
+            'name' => $item['name'],
+            'price' => $item['unit_price'],
+            'quantity' => $item['quantity'],
+            'subtotal' => $subtotal,
+            'stock_quantity' => $item['stock_quantity']
+        ];
+    }
+}
+
+// =======================
+// Handle Place Order
+// =======================
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($productsInCart)) {
+
+    // Generate order number
+    $orderNumber = 'ACE-' . date('Ymd') . '-' . strtoupper(substr(md5(uniqid()), 0, 6));
+
+    $subtotal = $total;
+    $shippingFee = 0.00;
+    $discountAmount = 0.00;
+    $totalAmount = $subtotal + $shippingFee - $discountAmount;
+
+    // Insert order
+    $stmt = $conn->prepare("
+        INSERT INTO orders (
+            customer_id, 
+            address_id, 
+            order_number, 
+            status, 
+            subtotal, 
+            shipping_fee, 
+            discount_amount, 
+            total_amount, 
+            payment_status, 
+            created_at
+        ) VALUES (?, NULL, ?, 'pending', ?, ?, ?, ?, 'unpaid', NOW())
+    ");
+    $stmt->bind_param("isdddd", $customerId, $orderNumber, $subtotal, $shippingFee, $discountAmount, $totalAmount);
+
+    if ($stmt->execute()) {
+        $orderId = $stmt->insert_id;
+
+        // Insert order items + reduce stock
+        foreach ($productsInCart as $item) {
+            $lineTotal = $item['price'] * $item['quantity'];
+
+            // Insert order item
+            $stmtItem = $conn->prepare("
+                INSERT INTO order_items (
+                    order_id,
+                    product_id,
+                    product_name,
+                    product_price,
+                    quantity,
+                    line_total
+                ) VALUES (?, ?, ?, ?, ?, ?)
+            ");
+            $stmtItem->bind_param(
+                "iisdid",
+                $orderId,
+                $item['id'],
+                $item['name'],
+                $item['price'],
+                $item['quantity'],
+                $lineTotal
+            );
+            $stmtItem->execute();
+
+            // Reduce stock
+            $stmtStock = $conn->prepare("
+                UPDATE products
+                SET stock_quantity = stock_quantity - ?
+                WHERE id = ? AND stock_quantity >= ?
+            ");
+            $stmtStock->bind_param("iii", $item['quantity'], $item['id'], $item['quantity']);
+            $stmtStock->execute();
         }
 
-        // Insert order
-        $stmt = $conn->prepare("INSERT INTO orders (customer_id, total, created_at) VALUES (?, ?, NOW())");
-        $stmt->bind_param("id", $customer_id, $total_price);
-        if ($stmt->execute()) {
-            $order_id = $conn->insert_id;
+        // Mark cart as converted
+        $stmtCart = $conn->prepare("UPDATE cart SET status = 'converted' WHERE id = ?");
+        $stmtCart->bind_param("i", $cartId);
+        $stmtCart->execute();
 
-            // Insert order items
-            foreach ($cart_data as $item) {
-                $stmt = $conn->prepare("INSERT INTO order_items (order_id, product_id, quantity) VALUES (?, ?, ?)");
-                $stmt->bind_param("iii", $order_id, $item['id'], $item['quantity']);
-                $stmt->execute();
-                $stmt->close();
-            }
-
-            $orderSuccess = true;
-        }
-        $stmt->close();
+        $orderSuccess = true;
     }
 }
 ?>
 
 <div class="container">
-<h1>Checkout</h1>
+    <h1>Checkout</h1>
 
-<?php if ($orderSuccess): ?>
-    <p style="color:green;">Thank you! Your order has been placed.</p>
-<?php else: ?>
-    <div id="checkout-container"></div>
-    <div style="margin-top:20px;">
-        <strong>Total Items: </strong><span id="checkout-total-items">0</span><br>
-        <strong>Total Price: </strong>R<span id="checkout-total-price">0.00</span><br><br>
-        <form id="checkout-form" method="POST">
-            <input type="hidden" name="cart_data" id="cart_data">
+    <?php if ($orderSuccess): ?>
+        <p style="color:green;">Thank you! Your order has been placed successfully.</p>
+        <p><strong>Order Number:</strong> <?= htmlspecialchars($orderNumber) ?></p>
+        <a href="products.php" class="primary-btn">Continue Shopping</a>
+
+    <?php elseif (!empty($productsInCart)): ?>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($productsInCart as $item): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($item['name']) ?></td>
+                        <td>R<?= number_format($item['price'], 2) ?></td>
+                        <td><?= $item['quantity'] ?></td>
+                        <td>R<?= number_format($item['subtotal'], 2) ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+        <h3>Total: R<?= number_format($total, 2) ?></h3>
+
+        <form method="POST">
             <button type="submit" class="primary-btn">Place Order</button>
         </form>
-    </div>
-<?php endif; ?>
-</div>
 
-<script src="public/assets/checkout.js" defer></script>
+    <?php else: ?>
+        <p>Your cart is empty. <a href="products.php">Go back to shop</a>.</p>
+    <?php endif; ?>
+</div>
 
 <?php include 'public/partials/footer.php'; ?>

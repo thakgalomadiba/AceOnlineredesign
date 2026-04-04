@@ -1,17 +1,18 @@
 <?php
 session_start();
-require 'public/partials/db.php'; // DB connection
-require 'public/partials/header.php'; // Include site header
+require 'public/partials/db.php';
+require 'public/partials/header.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = trim($_POST['name']);
+    $full_name = trim($_POST['name']);
     $email = trim($_POST['email']);
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $rawPassword = $_POST['password'];
+    $password_hash = password_hash($rawPassword, PASSWORD_DEFAULT);
     $phone = trim($_POST['phone']);
     $address = trim($_POST['address']);
 
     // Check if email exists
-    $stmt = $conn->prepare("SELECT id FROM customers WHERE email=?");
+    $stmt = $conn->prepare("SELECT id FROM customers WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
@@ -19,19 +20,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->num_rows > 0) {
         $error = "Email already registered!";
     } else {
-        $stmt = $conn->prepare("INSERT INTO customers (name,email,password,phone,address) VALUES (?,?,?,?,?)");
-        $stmt->bind_param("sssss", $name, $email, $password, $phone, $address);
+        // Insert customer into new schema
+        $stmt = $conn->prepare("
+            INSERT INTO customers (full_name, email, password_hash, phone)
+            VALUES (?, ?, ?, ?)
+        ");
+        $stmt->bind_param("ssss", $full_name, $email, $password_hash, $phone);
+
         if ($stmt->execute()) {
-            $_SESSION['customer_id'] = $stmt->insert_id;
-            $_SESSION['customer_name'] = $name;
+            $customer_id = $stmt->insert_id;
+
+            // Insert address if provided
+            if (!empty($address)) {
+                $city = 'Johannesburg';
+                $province = 'Gauteng';
+                $postal_code = '';
+
+                $addrStmt = $conn->prepare("
+                    INSERT INTO addresses (customer_id, address_line1, city, province, postal_code, is_default)
+                    VALUES (?, ?, ?, ?, ?, 1)
+                ");
+                $addrStmt->bind_param("issss", $customer_id, $address, $city, $province, $postal_code);
+                $addrStmt->execute();
+                $addrStmt->close();
+            }
+
+            $_SESSION['customer_id'] = $customer_id;
+            $_SESSION['customer_name'] = $full_name;
+            $_SESSION['customer_role'] = 'customer';
+
             header("Location: checkout.php");
             exit;
         } else {
             $error = "Registration failed. Try again!";
         }
     }
+
+    $stmt->close();
 }
 ?>
+
 <!-- MAIN CONTENT -->
 <div class="container" style="padding-top:20px;">
     <h1>Register</h1>
@@ -47,7 +75,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <p>Already have an account? <a href="login.php">Login here</a></p>
 </div>
 
-<?php
-// Include site footer if you have one
-require 'public/partials/footer.php';
-?>
+<?php require 'public/partials/footer.php'; ?>

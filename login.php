@@ -9,14 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Initialize variables
     $id = null;
-    $name = null;
+    $full_name = null;
     $hash = null;
     $role = null;
 
-    $stmt = $conn->prepare("SELECT id, name, password, role FROM customers WHERE email = ?");
+    $stmt = $conn->prepare("SELECT id, full_name, password_hash, role FROM customers WHERE email = ? AND is_active = 1");
     $stmt->bind_param("s", $email);
     $stmt->execute();
-    $stmt->bind_result($id, $name, $hash, $role);
+    $stmt->bind_result($id, $full_name, $hash, $role);
 
     $userFound = $stmt->fetch();
     $stmt->close();
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_regenerate_id(true);
 
         $_SESSION['customer_id'] = $id;
-        $_SESSION['customer_name'] = $name;
+        $_SESSION['customer_name'] = $full_name;
         $_SESSION['customer_role'] = $role;
 
         if ($role === 'admin') {
@@ -42,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
 <?php require 'public/partials/header.php'; ?>
 
 <div class="container">

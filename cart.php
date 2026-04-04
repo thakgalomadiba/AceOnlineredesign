@@ -1,38 +1,77 @@
 <?php
 session_start();
-require 'public/partials/db.php'; // your DB connection
+require 'public/partials/db.php';
 
-// Initialize cart if not set
-if (!isset($_SESSION['cart'])) {
-    $_SESSION['cart'] = [];
+// User must be logged in
+if (!isset($_SESSION['customer_id'])) {
+    header("Location: login.php");
+    exit;
 }
 
-// Handle Remove Item
-if (isset($_GET['remove'])) {
-    $id = $_GET['remove'];
-    if (isset($_SESSION['cart'][$id])) {
-        unset($_SESSION['cart'][$id]);
-        header("Location: cart.php");
-        exit;
-    }
-}
-
-// Calculate total
+$customerId = (int)$_SESSION['customer_id'];
+$productsInCart = [];
 $total = 0;
-foreach ($_SESSION['cart'] as $id => $quantity) {
-    $stmt = $conn->prepare("SELECT name, price FROM products WHERE id = ?");
-    $stmt->bind_param("i", $id);
+
+// =======================
+// Get active cart
+// =======================
+$stmt = $conn->prepare("SELECT id FROM cart WHERE customer_id = ? AND status = 'active' LIMIT 1");
+$stmt->bind_param("i", $customerId);
+$stmt->execute();
+$cartResult = $stmt->get_result();
+$cart = $cartResult->fetch_assoc();
+
+$cartId = $cart ? $cart['id'] : null;
+
+// =======================
+// Handle Remove Item
+// =======================
+if (isset($_GET['remove']) && $cartId) {
+    $productId = (int)$_GET['remove'];
+
+    $stmt = $conn->prepare("DELETE FROM cart_items WHERE cart_id = ? AND product_id = ?");
+    $stmt->bind_param("ii", $cartId, $productId);
+    $stmt->execute();
+
+    header("Location: cart.php");
+    exit;
+}
+
+// =======================
+// Fetch cart items
+// =======================
+if ($cartId) {
+    $stmt = $conn->prepare("
+        SELECT 
+            ci.product_id,
+            ci.quantity,
+            ci.unit_price,
+            p.name,
+            p.stock_quantity,
+            pi.image_path
+        FROM cart_items ci
+        INNER JOIN products p ON ci.product_id = p.id
+        LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_primary = 1
+        WHERE ci.cart_id = ?
+        ORDER BY ci.id DESC
+    ");
+    $stmt->bind_param("i", $cartId);
     $stmt->execute();
     $result = $stmt->get_result();
-    $product = $result->fetch_assoc();
-    $total += $product['price'] * $quantity;
-    $productsInCart[] = [
-        'id' => $id,
-        'name' => $product['name'],
-        'price' => $product['price'],
-        'quantity' => $quantity,
-        'subtotal' => $product['price'] * $quantity
-    ];
+
+    while ($item = $result->fetch_assoc()) {
+        $subtotal = $item['unit_price'] * $item['quantity'];
+        $total += $subtotal;
+
+        $productsInCart[] = [
+            'id' => $item['product_id'],
+            'name' => $item['name'],
+            'price' => $item['unit_price'],
+            'quantity' => $item['quantity'],
+            'subtotal' => $subtotal,
+            'image' => $item['image_path'] ?: 'default.png'
+        ];
+    }
 }
 ?>
 
@@ -40,11 +79,13 @@ foreach ($_SESSION['cart'] as $id => $quantity) {
 
 <div class="container">
     <h2>Your Cart</h2>
-    <?php if (!empty($_SESSION['cart'])): ?>
+
+    <?php if (!empty($productsInCart)): ?>
         <table class="cart-table">
             <thead>
                 <tr>
                     <th>Product</th>
+                    <th>Image</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Subtotal</th>
@@ -55,18 +96,30 @@ foreach ($_SESSION['cart'] as $id => $quantity) {
                 <?php foreach ($productsInCart as $item): ?>
                     <tr>
                         <td><?= htmlspecialchars($item['name']) ?></td>
+                        <td>
+                            <img 
+                                src="public/uploads/products/<?= htmlspecialchars($item['image']) ?>" 
+                                alt="<?= htmlspecialchars($item['name']) ?>" 
+                                width="60"
+                            >
+                        </td>
                         <td>R<?= number_format($item['price'], 2) ?></td>
                         <td><?= $item['quantity'] ?></td>
                         <td>R<?= number_format($item['subtotal'], 2) ?></td>
-                        <td><a href="cart.php?remove=<?= $item['id'] ?>" class="btn-remove">Remove</a></td>
+                        <td>
+                            <a href="cart.php?remove=<?= $item['id'] ?>" class="btn-remove" onclick="return confirm('Remove this item from cart?')">
+                                Remove
+                            </a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
+
         <h3>Total: R<?= number_format($total, 2) ?></h3>
         <a href="checkout.php" class="btn-checkout">Proceed to Checkout</a>
     <?php else: ?>
-        <p>Your cart is empty. <a href="index.php">Go back to shop</a>.</p>
+        <p>Your cart is empty. <a href="products.php">Go back to shop</a>.</p>
     <?php endif; ?>
 </div>
 
