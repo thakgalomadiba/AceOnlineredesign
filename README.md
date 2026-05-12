@@ -77,10 +77,10 @@ Configure the database connection
 Open config/db.php
 Update with your database credentials:
 
-php$host = 'localhost';
-$dbname = 'ace_online';
-$username = 'your_username';
-$password = 'your_password';
+$servername = "localhost";
+$username   = "root";
+$password   = "";
+$dbname     = "ace_online_v2";
 
 Run the project
 
