@@ -2,7 +2,9 @@
 require 'public/partials/db.php';
 include 'public/partials/header.php';
 
-// Fetch categories
+// =========================
+// FETCH CATEGORIES
+// =========================
 $categories = [];
 $catSql = "SELECT id, name, slug, image_url FROM categories ORDER BY name ASC";
 $catResult = $conn->query($catSql);
@@ -13,7 +15,9 @@ if ($catResult && $catResult->num_rows > 0) {
     }
 }
 
-// Fetch featured products
+// =========================
+// FETCH FEATURED PRODUCTS
+// =========================
 $featuredProducts = [];
 $productSql = "
     SELECT 
@@ -26,7 +30,8 @@ $productSql = "
     FROM products p
     LEFT JOIN product_images pi 
         ON p.id = pi.product_id AND pi.is_primary = 1
-    WHERE p.is_featured = 1 AND p.is_active = 1
+    WHERE p.is_featured = 1 
+      AND p.is_active = 1
     ORDER BY p.created_at DESC
     LIMIT 6
 ";
@@ -50,41 +55,70 @@ if ($productResult && $productResult->num_rows > 0) {
 
 <!-- CATEGORY GRID -->
 <section class="home-categories container">
-  <h2>Shop By Category</h2>
+  <div class="section-heading">
+    <h2>Shop By Category</h2>
+    <a href="products.php" class="view-all-link">Browse All</a>
+  </div>
 
-  <ul class="category-grid" id="category-list">
-    <?php foreach ($categories as $category): ?>
-      <li class="category-card">
-        <a href="products.php?category=<?= urlencode($category['slug']) ?>">
-          <img 
-            src="<?= htmlspecialchars($category['image_url'] ?: 'uploads/categories/default.jpg') ?>" 
-            alt="<?= htmlspecialchars($category['name']) ?>"
-          >
-          <h3><?= htmlspecialchars($category['name']) ?></h3>
-        </a>
-      </li>
-    <?php endforeach; ?>
-  </ul>
+  <?php if (!empty($categories)): ?>
+    <ul class="category-grid" id="category-list">
+      <?php foreach ($categories as $category): ?>
+        <li class="category-card">
+          <a href="products.php?category=<?= urlencode($category['slug']) ?>">
+            <img 
+              src="<?= htmlspecialchars($category['image_url'] ?: 'uploads/categories/default.jpg') ?>" 
+              alt="<?= htmlspecialchars($category['name']) ?>"
+              loading="lazy"
+              onerror="this.src='uploads/categories/default.jpg';"
+            >
+            <h3><?= htmlspecialchars($category['name']) ?></h3>
+          </a>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  <?php else: ?>
+    <div class="empty-state">
+      <p>No categories available yet.</p>
+    </div>
+  <?php endif; ?>
 </section>
 
 <!-- FEATURED PRODUCTS -->
 <section class="featured-products container">
-  <h2>Featured Products</h2>
-  <div class="product-grid">
-    <?php foreach ($featuredProducts as $product): ?>
-      <div class="product-card">
-        <a href="product-details.php?slug=<?= urlencode($product['slug']) ?>">
-          <img 
-            src="<?= htmlspecialchars($product['image_path'] ?: 'uploads/products/default.jpg') ?>" 
-            alt="<?= htmlspecialchars($product['name']) ?>"
-          >
-          <h3><?= htmlspecialchars($product['name']) ?></h3>
-          <p><?= htmlspecialchars($product['brand'] ?? '') ?></p>
-          <p><strong>R<?= number_format($product['price'], 2) ?></strong></p>
-        </a>
-      </div>
-    <?php endforeach; ?>
+  <div class="section-heading">
+    <h2>Featured Products</h2>
+    <a href="products.php" class="view-all-link">View All Products</a>
   </div>
+
+  <?php if (!empty($featuredProducts)): ?>
+    <div class="product-grid">
+      <?php foreach ($featuredProducts as $product): ?>
+        <div class="product-card">
+          <a href="product-details.php?slug=<?= urlencode($product['slug']) ?>">
+            <img 
+              src="<?= htmlspecialchars($product['image_path'] ?: 'uploads/products/default.jpg') ?>" 
+              alt="<?= htmlspecialchars($product['name']) ?>"
+              loading="lazy"
+              onerror="this.src='uploads/products/default.jpg';"
+            >
+            <div class="product-info">
+              <h3><?= htmlspecialchars($product['name']) ?></h3>
+
+              <?php if (!empty($product['brand'])): ?>
+                <p class="product-brand"><?= htmlspecialchars($product['brand']) ?></p>
+              <?php endif; ?>
+
+              <p class="product-price"><strong>R<?= number_format((float)$product['price'], 2) ?></strong></p>
+            </div>
+          </a>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  <?php else: ?>
+    <div class="empty-state">
+      <p>No featured products available yet.</p>
+    </div>
+  <?php endif; ?>
 </section>
 
 <!-- PROMO BANNER -->
