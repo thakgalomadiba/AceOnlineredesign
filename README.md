@@ -10,8 +10,8 @@ Coming soon — deployment in progress
 
 ## 📸 Screenshots
 
-![Login Page](uploads/Login%20Page.png)
-![Dashboard](uploads/Screenshot%202023-11-10%20211950.png)
+![Homepage](uploads/homepage.png)
+![Admin Dashboard](uploads/adminpage.png)
 
 ---
 
