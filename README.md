@@ -12,6 +12,8 @@ Coming soon — deployment in progress
 
 ![Homepage](uploads/homepage.png)
 ![Admin Dashboard](uploads/adminpage.png)
+![Account Management](uploads/accmgmt.png)
+![Product Management Dashboard](uploads/productmanagement.png)
 
 ---
 
