@@ -1,0 +1,13 @@
+{
+    "name": "thakgalomadiba/ace-online",
+    "description": "PHP-based e-commerce portfolio project",
+    "authors": [
+        {
+            "name": "Thakgalo"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "11.5.*"
+    }
+}
