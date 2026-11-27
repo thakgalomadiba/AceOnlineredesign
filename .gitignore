@@ -1,0 +1,25 @@
+
+# Environment configuration
+.env
+.env.*
+
+# Local development configuration
+config.local.php
+
+# Logs
+*.log
+error_log
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.bak
+/vendor/
