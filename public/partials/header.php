@@ -47,7 +47,16 @@ $isLoggedIn = isset($_SESSION['customer_id']);
 
 <!-- ================= MAIN HEADER ================= -->
 <header class="main-header">
+
+    
+
     <div class="container main-nav">
+
+        <button class="mobile-menu-toggle" id="mobileMenuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false">
+        ☰
+        </button>
 
         <!-- Logo -->
         <div class="logo">
@@ -108,4 +117,22 @@ $isLoggedIn = isset($_SESSION['customer_id']);
 
         </div>
     </div>
+
+    <div class="mobile-nav" id="mobileNav">
+
+    <button class="mobile-menu-close" id="mobileMenuClose"
+            aria-label="Close navigation menu">
+        &times;
+    </button>
+
+    <a href="/index.php">Home</a>
+    <a href="/products.php">Shop</a>
+    <a href="/about.php">About</a>
+    <a href="/contact.php">Contact</a>
+
+    <!-- Keep your existing account and cart sections here -->
+
+    </div>
+
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 </header>
