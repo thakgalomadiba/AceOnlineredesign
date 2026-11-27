@@ -7,8 +7,9 @@ if (session_status() === PHP_SESSION_NONE) {
 // Detect whether the application is running locally or on InfinityFree.
 $isLocal = in_array($_SERVER['HTTP_HOST'] ?? '', [
     'localhost',
-    '127.0.0.1'
-]);
+    '127.0.0.1',
+    'orvexa.test'
+], true);
 
 if ($isLocal) {
     // Local XAMPP database
@@ -16,6 +17,7 @@ if ($isLocal) {
     $username   = "root";
     $password   = "";
     $dbname     = "ace_online_v2";
+
 } else {
     // InfinityFree database
     $servername = "sql303.infinityfree.com";
