@@ -94,13 +94,10 @@ if ($productResult && $productResult->num_rows > 0) {
     <div class="product-grid">
       <?php foreach ($featuredProducts as $product): ?>
         <div class="product-card">
-          <a href="product-details.php?slug=<?= urlencode($product['slug']) ?>">
-            <img 
-              src="<?= htmlspecialchars($product['image_path'] ?: 'uploads/products/default.jpg') ?>" 
-              alt="<?= htmlspecialchars($product['name']) ?>"
-              loading="lazy"
-              onerror="this.src='uploads/products/default.jpg';"
-            >
+          <a href="product.php?slug=<?= urlencode($product['slug']) ?>">
+            <img src="public/uploads/products/<?php echo htmlspecialchars($product['image_path'] ?: 'default.png'); ?>"
+                alt="<?php echo htmlspecialchars($product['name']); ?>"
+                    >
             <div class="product-info">
               <h3><?= htmlspecialchars($product['name']) ?></h3>
 

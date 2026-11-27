@@ -16,7 +16,7 @@ $isLoggedIn = isset($_SESSION['customer_id']);
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ACE Online SA</title>
+<title>Orvexa</title>
 
 <link rel="stylesheet" href="/public/assets/css/base.css">
 <link rel="stylesheet" href="/public/assets/css/layout.css">
@@ -50,7 +50,7 @@ $isLoggedIn = isset($_SESSION['customer_id']);
 
         <!-- Logo -->
         <div class="logo">
-            <a href="/index.php">ACE ONLINE</a>
+            <a href="/index.php">ORVEXA</a>
         </div>
 
         <!-- Search -->
