@@ -1,6 +1,6 @@
 <footer>
   <div class="container">
-    <p>&copy; <?= date('Y') ?> ACE ONLINE SA. All rights reserved.</p>
+    <p>&copy; <?= date('Y') ?> ORVEXA. All rights reserved.</p>
   </div>
 </footer>
 
